@@ -80,11 +80,11 @@ RUN apt-get -o Acquire::Check-Valid-Until=false update && \\
     && rm -rf /var/lib/apt/lists/*
 
 # Clone SageMath
-WORKDIR /root/build
+WORKDIR /opt
 RUN git clone -c core.symlinks=true --filter blob:none --origin upstream --branch master --tags $SAGE_REPO sage
 
 # Build SageMath
-WORKDIR /root/build/sage
+WORKDIR /opt/sage
 RUN make configure
 RUN ./configure --prefix=/usr/local \\
                 --build=i686-linux-gnu \\

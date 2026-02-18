@@ -49,9 +49,9 @@ ENV FFLASFFPACK_CONFIGURE="--disable-simd --disable-avx --disable-avx2 --disable
 
 # Configure Mirrors
 RUN rm -f /etc/apt/sources.list.d/* && \
-    echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware\n\
-    deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware\n\
-    deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware\n\
+    echo "deb http://mirrors.ustc.edu.cn/debian bookworm main contrib non-free non-free-firmware\n\
+    deb http://mirrors.ustc.edu.cn/debian bookworm-updates main contrib non-free non-free-firmware\n\
+    deb http://mirrors.ustc.edu.cn/debian bookworm-backports main contrib non-free non-free-firmware\n\
     deb http://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware" > /etc/apt/sources.list && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -108,11 +108,11 @@ ENV HTTP_PROXY=\${PROXY_URL}
 ENV HTTPS_PROXY=\${PROXY_URL}
 
 # Clone SageMath
-WORKDIR /root/build
+WORKDIR /opt
 RUN git clone -c core.symlinks=true --filter blob:none --origin upstream --branch master --tags $SAGE_REPO sage
 
 # Build SageMath
-WORKDIR /root/build/sage
+WORKDIR /opt/sage
 RUN make configure
 RUN ./configure --prefix=/usr/local \\
                 --build=i686-linux-gnu \\
