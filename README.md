@@ -9,18 +9,18 @@ How to build:
 - run `cd tools/docker/SageMath`
 - run `./build.sh`
 - run `./build-state.js`
-- run 'cp split.sh ../../../images/split.sh'
+- run `cp split.sh ../../../images/split.sh`
 - run `cd ../../../images`
-- run './split.sh'
-- run 'rm debian-9p-rootfs.tar debian-state-base.bin'
-- run 'cd ..'
-- run `make run`
+- run `./split.sh`
+- run `rm debian-9p-rootfs.tar debian-state-base.bin`
+- run `cd ..`
+- run `make run` or `python3 -m http.server 8000`
 
   This should start a server on 8000 (or other ports).
 
 Note:
-- The script 'tools/docker/SageMath/build_proxy.sh' contain the proxy configuration and deb mirror. Use it if you cannot connect to github and debian repository directly.
-- The folder 'tools/docker/SageMath-apt' contains the build setting for legacy sage 9.5 via apt.
+- The script `tools/docker/SageMath/build_proxy.sh` contain the proxy configuration and deb mirror. Use it if you cannot connect to github and debian repository directly.
+- The folder `tools/docker/SageMath-apt` contains the build setting for legacy sage 9.5 via apt.
 
 Todo:
 - Add persistent storage (see https://github.com/MercuryWorkshop/v86)
