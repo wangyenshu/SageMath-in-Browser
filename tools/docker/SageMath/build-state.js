@@ -21,7 +21,7 @@ var emulator = new V86({
     bios: { url: path.join(V86_ROOT, "/bios/seabios.bin") },
     vga_bios: { url: path.join(V86_ROOT, "/bios/vgabios.bin") },
     autostart: true,
-    memory_size: 1024 * 1024 * 1024,
+    memory_size: 1536 * 1024 * 1024,
     vga_memory_size: 8 * 1024 * 1024,
     network_relay_url: "<UNUSED>",
     bzimage_initrd_from_filesystem: true,
