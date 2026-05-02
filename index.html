@@ -98,7 +98,7 @@ window.onload = async function () {
 
         const emulator = new V86({
             wasm_path: "build/v86.wasm",
-            memory_size: 1536 * 1024 * 1024,
+            memory_size: 1024 * 1024 * 1024,
             vga_memory_size: 8 * 1024 * 1024,
             screen_container: screen,
             initial_state: { url: stateUrl },
