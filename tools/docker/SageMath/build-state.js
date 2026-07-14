@@ -31,7 +31,7 @@ var emulator = new V86({
     // Remove unneeded security features since running in a sandbox (spectre_v2=off, pti=off).
     // Make state file half the size by setting "page_poison=on", i.e. when free memory, Linux doesn't overwrite with random bytes.
     // Set "rootflags=trans=virtio,cache=none --> doesn't help with FS cache"
-    cmdline: "rw init=/bin/systemd root=host9p console=ttyS0 spectre_v2=off pti=off page_poison=on",
+    cmdline: "rw init=/bin/systemd root=host9p console=ttyS0 spectre_v2=off pti=off init_on_free=on",
     filesystem: {
         basefs: {
             url: path.join(V86_ROOT, "/images/debian-base-fs.json"),
