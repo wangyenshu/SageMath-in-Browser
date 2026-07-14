@@ -9,12 +9,8 @@ How to build:
 - run `cd tools/docker/SageMath`
 - run `./build.sh`
 - run `./build-state.js`
-- run `cp split.sh ../../../images/split.sh`
-- run `cd ../../../images`
-- run `./split.sh`
-- run `rm debian-9p-rootfs.tar debian-state-base.bin`
-- run `cd ..`
-- run `make run` or `python3 -m http.server 8000`
+- run `./compress-split-state.sh`
+- run `make run` or `python3 -m http.server 8000` in the repo root directory
 
   This should start a server on 8000 (or other ports).
 
